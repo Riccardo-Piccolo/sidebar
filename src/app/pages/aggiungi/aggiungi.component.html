@@ -1,0 +1,46 @@
+<div class=" border border-class">
+    <h2 class="h2-class">Aggiungi prenotazione</h2>
+</div>
+
+<div id="body">
+    <table id="tabella">
+        <thead>
+            <th>Codice</th>
+            <th>Compagnia</th>
+            <th>Modello aereo</th>
+            <th>Partenza volo</th>
+            <th>Data e ora partenza</th>
+            <th>Arrivo volo</th>
+            <th>Data e ora arrivo</th>
+            <th>Numero posti disponibili</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let volo of voli">
+                <td>{{volo.codice}}</td>
+                <td>{{volo.codiceAereo.compagnia.nome}}</td>
+                <td>{{volo.codiceAereo.modello}}</td>
+                <td>{{volo.terminalOrigine.nome}} - {{volo.terminalOrigine.citta}}</td>
+                <td>{{volo.dataPartenza}} - {{volo.oraPartenza}}</td>
+                <td>{{volo.terminalDestinazione.nome}} - {{volo.terminalDestinazione.citta}}</td>
+                <td>{{volo.dataArrivo}} - {{volo.oraArrivo}}</td>
+                <td>{{volo.codiceAereo.posti}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="submitForm()">
+        <label for="sctVolo">Volo:    </label>
+        <select name="sctVolo" formControlName="selectVolo">
+            <option value="" selected></option>
+            <option *ngFor="let volo of voli" value="{{volo.codice}}">{{volo.codice}}</option>
+        </select>
+        <br>
+        <label for="sctCliente">Cliente:    </label>
+        <select name="sctCliente" formControlName="selectCliente">
+            <option value="" selected></option>
+            <option *ngFor="let cliente of clienti" value="{{cliente.codice}}">{{cliente.nome}}</option>
+        </select>
+        <br>
+        <button type="submit">INVIA</button>
+    </form>
+</div>
