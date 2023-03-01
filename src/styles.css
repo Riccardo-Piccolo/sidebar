@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+table, thead, th, tbody, tr, td{
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    font-weight: bold;
+}

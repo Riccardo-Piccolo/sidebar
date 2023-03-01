@@ -1,0 +1,36 @@
+<div class=" border border-class">
+    <h2 class="h2-class">Lista prenotazioni</h2>
+</div>
+
+<div id="body">
+
+
+    <table id="tabella">
+        <thead>
+            <th>Codice</th>
+            <th>Data prenotazione</th>
+            <th>Cliente</th>
+            <th>Partenza volo</th>
+            <th>Data e ora partenza</th>
+            <th>Arrivo volo</th>
+            <th>Data e ora arrivo</th>
+            <th>Modifica prenotazione</th>
+            <th>Cancella prenotazione</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prenotazione of prenotazioni">
+                <td>{{prenotazione.codice}}</td>
+                <td>{{prenotazione.data}}</td>
+                <td>{{prenotazione.codiceCliente.nome}}</td>
+                <td>{{prenotazione.codiceVolo.terminalOrigine.nome}} - {{prenotazione.codiceVolo.terminalOrigine.citta}}</td>
+                <td>{{prenotazione.codiceVolo.dataPartenza}} - {{prenotazione.codiceVolo.oraPartenza}}</td>
+                <td>{{prenotazione.codiceVolo.terminalDestinazione.nome}} - {{prenotazione.codiceVolo.terminalDestinazione.citta}}</td>
+                <td>{{prenotazione.codiceVolo.dataArrivo}} - {{prenotazione.codiceVolo.oraArrivo}}</td>
+                <td><button (click)="editPren(prenotazione.codice)" class="btn btn-primary">Modifica</button></td>
+                <td><button (click)="deletePren(prenotazione.codice)" class="btn btn-primary">Cancella</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

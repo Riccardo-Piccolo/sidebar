@@ -1,0 +1,41 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+    Airline
+    <div style="float: right;" id="utente">
+        <span id="nomeUtente"></span>
+         | <a id="logout">Logout</a>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/home" style="color:white;">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/aggiungi" style="color:white;">
+        <mat-icon>profile-plus</mat-icon>
+        <span>Aggiungi</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/info" style="color:white;">
+        <mat-icon>info</mat-icon>
+        <span>Info</span>
+      </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
