@@ -36,4 +36,13 @@ export class PrenotazioneService {
             data: data
         });
     }
+
+    public editPren(codicePrenotazione: String, codiceVolo: String, codiceCliente: String, data: string) {
+        return this.httpClient.put(this.baseUrl+"/"+codicePrenotazione, {
+            codice: codicePrenotazione,
+            codiceVolo: codiceVolo,
+            codiceCliente: codiceCliente,
+            data: data
+        });
+    }
 }

@@ -20,7 +20,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UpdatePrenComponent } from './pages/update-pren/update-pren.component';
 import { CommonModule } from '@angular/common';
-import { DeletePrenComponent } from './pages/delete-pren/delete-pren.component';
+import { ConfermaComponent } from './pages/conferma/conferma.component';
+import { ConfermaService } from './services/conferma.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { DeletePrenComponent } from './pages/delete-pren/delete-pren.component';
     NotFoundComponent,
     HomeComponent,
     UpdatePrenComponent,
-    DeletePrenComponent,
+    ConfermaComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,7 @@ import { DeletePrenComponent } from './pages/delete-pren/delete-pren.component';
     MatProgressSpinnerModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ConfermaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

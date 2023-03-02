@@ -4,9 +4,18 @@
 
 <div id="body">
 
+    <div class="alert alert-success" role="alert" *ngIf="success">
+        Cancellazione effettuata con successo!
+    </div>
 
-    <table id="tabella">
+    <br><br>
+
+
+    <table id="tabella" class="table-responsive table-striped">
         <thead>
+            <th colspan="11">Dati presenti</th>
+        </thead>
+        <thead class="thead-dark">
             <th>Codice</th>
             <th>Data prenotazione</th>
             <th>Cliente</th>
@@ -14,6 +23,8 @@
             <th>Data e ora partenza</th>
             <th>Arrivo volo</th>
             <th>Data e ora arrivo</th>
+            <th>Durata</th>
+            <th>Numero scali</th>
             <th>Modifica prenotazione</th>
             <th>Cancella prenotazione</th>
         </thead>
@@ -26,6 +37,8 @@
                 <td>{{prenotazione.codiceVolo.dataPartenza}} - {{prenotazione.codiceVolo.oraPartenza}}</td>
                 <td>{{prenotazione.codiceVolo.terminalDestinazione.nome}} - {{prenotazione.codiceVolo.terminalDestinazione.citta}}</td>
                 <td>{{prenotazione.codiceVolo.dataArrivo}} - {{prenotazione.codiceVolo.oraArrivo}}</td>
+                <td>{{prenotazione.durata}}</td>
+                <td>{{prenotazione.numeroScali}}</td>
                 <td><button (click)="editPren(prenotazione.codice)" class="btn btn-primary">Modifica</button></td>
                 <td><button (click)="deletePren(prenotazione.codice)" class="btn btn-primary">Cancella</button></td>
             </tr>
