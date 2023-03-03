@@ -38,6 +38,28 @@ export class AggiungiComponent implements OnInit {
             selectVolo: ["test", [Validators.required]],
             selectCliente: ["test", [Validators.required]]
         });
+        this.voli.forEach((element) => {
+
+            var orarioPartenza = element.oraPartenza.split(":");
+            var orarioArrivo = element.oraArrivo.split(":");
+
+            var partenza = new Date(element.dataPartenza).setTime(new Date(element.dataPartenza).getTime()
+                + Number(orarioPartenza[0]) * 60 * 60 * 1000 + Number(orarioPartenza[1]) * 60 * 1000
+                + Number(orarioPartenza[2]) * 1000);
+            console.log(partenza);
+
+            var arrivo = new Date(element.dataArrivo).setTime(new Date(element.dataArrivo).getTime()
+                + Number(orarioArrivo[0]) * 60 * 60 * 1000 + Number(orarioArrivo[1]) * 60 * 1000
+                + Number(orarioArrivo[2]) * 1000);
+            console.log(arrivo);
+
+            const durata = arrivo.valueOf() - partenza.valueOf();
+            element.durata = this.convertMsToTime(durata);
+
+            this.voloService.getNumeroScali(element.codice).subscribe(data => {
+                element.numeroScali = data;
+            });
+        })
     }
 
     lista() {
@@ -85,6 +107,24 @@ export class AggiungiComponent implements OnInit {
         this.service.addPren(this.codicePrenotazione, this.myForm.get("selectVolo")?.value, this.myForm.get("selectCliente")?.value, formatDate(new Date(), 'yyyy-MM-dd', 'en'))
             .subscribe(result => console.log(result), error => console.log(error));
 
+    }
+
+    padTo2Digits(num: number) {
+        return num.toString().padStart(2, '0');
+    }
+
+    convertMsToTime(milliseconds: number) {
+        let seconds = Math.floor(milliseconds / 1000);
+        let minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+
+        seconds = seconds % 60;
+        minutes = minutes % 60;
+
+
+        return `${this.padTo2Digits(hours)}:${this.padTo2Digits(minutes)}:${this.padTo2Digits(
+        seconds,
+        )}`;
     }
 
 }

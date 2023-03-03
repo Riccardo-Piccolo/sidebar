@@ -6,4 +6,6 @@ export class Prenotazione {
     codiceVolo!: Volo;
     codiceCliente!: Cliente;
     data!: Date;
+    durata: String = "";
+    numeroScali: number = 0;
 }

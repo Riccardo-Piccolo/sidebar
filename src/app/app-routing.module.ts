@@ -7,7 +7,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UpdatePrenComponent } from './pages/update-pren/update-pren.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { DeletePrenComponent } from './pages/delete-pren/delete-pren.component';
 
 const routes: Routes = [
     {
@@ -28,16 +27,12 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: '**',
-        component: NotFoundComponent
-    },
-    {
         path: 'aggiorna/:id',
         component: UpdatePrenComponent
     },
     {
-        path: 'cancella/:id',
-        component: DeletePrenComponent
+        path: '**',
+        component: NotFoundComponent
     }
 ];
 

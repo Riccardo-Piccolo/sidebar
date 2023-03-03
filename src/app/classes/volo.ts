@@ -1,4 +1,3 @@
-import { Time } from "@angular/common";
 import { Aereo } from "./aereo";
 import { Aeroporto } from "./aeroporto";
 
@@ -8,8 +7,10 @@ export class Volo {
     terminalOrigine!: Aeroporto;
     terminalDestinazione!: Aeroporto;
     dataPartenza!: Date;
-    oraPartenza!: Time;
+    oraPartenza!: String;
     dataArrivo!: Date;
-    oraArrivo!: Time;
+    oraArrivo!: String;
     prezzo!: number;
+    durata: String = "";
+    numeroScali: number = 0;
 }

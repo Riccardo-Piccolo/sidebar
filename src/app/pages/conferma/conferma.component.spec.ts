@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeletePrenComponent } from './delete-pren.component';
+import { ConfermaComponent } from './conferma.component';
 
-describe('DeletePrenComponent', () => {
-  let component: DeletePrenComponent;
-  let fixture: ComponentFixture<DeletePrenComponent>;
+describe('ConfermaComponent', () => {
+  let component: ConfermaComponent;
+  let fixture: ComponentFixture<ConfermaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeletePrenComponent ]
+      declarations: [ ConfermaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeletePrenComponent);
+    fixture = TestBed.createComponent(ConfermaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

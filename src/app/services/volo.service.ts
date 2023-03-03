@@ -18,4 +18,8 @@ export class VoloService {
     public getVoliFromToday(): Observable<any> {
         return this.httpClient.get(this.baseUrl+"/getVoliFromToday");
     }
+
+    public getNumeroScali(id: number): Observable<any> {
+        return this.httpClient.get(this.baseUrl+"/"+id+"/getNumeroScali");
+    }
 }
